@@ -37,3 +37,5 @@ void WebPageClass::update(){
 String WebPageClass::query(){
   return currentCommand;
 }
+
+WebPageClass WebPage(WiFi_SSID, WiFi_PASSWORD); //Placeholders, colocar as credenciais reais.
