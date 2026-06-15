@@ -7,6 +7,8 @@ void RobotClass::begin(){
 }
 
 void RobotClass::update(){
+  WebPage.update();
+
   if(WebPage.query() == "FORWARD"){
     Right_Motor.FadeForward();
     Left_Motor.FadeForward();
@@ -43,6 +45,9 @@ void RobotClass::update(){
     Right_Motor.FadeStop();
     Left_Motor.FadeStop();
   }
+
+  Right_Motor.update();
+  Left_Motor.update();
 }
 
 RobotClass Robot;

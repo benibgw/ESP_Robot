@@ -22,7 +22,7 @@ void MotorsClass::FadeStop(){
   targetSpeed = 0;
 }
 
-void MotorsClass::Update(){
+void MotorsClass::update(){
   if(currentSpeed == targetSpeed) return;
   if(millis() - lastUpdate < 10) return;
   lastUpdate = millis();
@@ -34,5 +34,5 @@ void MotorsClass::Update(){
   analogWrite(Backward_PIN, direction == BACKWARD ? currentSpeed : 0);
 }
 
-MotorsClass Right_Motor(RightForward_PIN, RightBackward_PIN); //Placeholders, colocar os PINS reais.
-MotorsClass Left_Motor(LeftForward_PIN, LeftBackward_PIN); //Placeholders, colocar os PINS reais.
+MotorsClass Right_Motor(12, 13);
+MotorsClass Left_Motor(14, 27);

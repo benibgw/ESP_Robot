@@ -8,7 +8,7 @@ class MotorsClass{
     void FadeForward(uint8_t speed = 255);
     void FadeBackward(uint8_t speed = 255);
     void FadeStop();
-    void Update();
+    void update();
   private:
     int Forward_PIN;
     int Backward_PIN;
