@@ -4,7 +4,7 @@
 class MotorsClass{
   public:
     enum MotorDirection{STOPPED, FORWARD, BACKWARD};
-    MotorsClass(int forward_pin, int backward_pin);
+    MotorsClass(int forward_pin, int backward_pin, int pwm_pin);
     void FadeForward(uint8_t speed = 255);
     void FadeBackward(uint8_t speed = 255);
     void FadeStop();
@@ -12,6 +12,7 @@ class MotorsClass{
   private:
     int Forward_PIN;
     int Backward_PIN;
+    int PWM_PIN;
     uint8_t currentSpeed = 0;
     uint8_t targetSpeed = 0;
     MotorDirection direction = STOPPED;

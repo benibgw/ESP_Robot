@@ -1,10 +1,12 @@
 #include "Motors.h"
 
-MotorsClass::MotorsClass(int forward_pin, int backward_pin){
+MotorsClass::MotorsClass(int forward_pin, int backward_pin, int pwm_pin){
   Forward_PIN = forward_pin;
   Backward_PIN = backward_pin;
+  PWM_PIN = pwm_pin;
   pinMode(Forward_PIN, OUTPUT);
   pinMode(Backward_PIN, OUTPUT);
+  pinMode(PWM_PIN, OUTPUT);
 }
 
 void MotorsClass::FadeForward(uint8_t speed){
@@ -30,9 +32,10 @@ void MotorsClass::update(){
   if(currentSpeed < targetSpeed) currentSpeed++;
   else currentSpeed--;
 
-  analogWrite(Forward_PIN, direction == FORWARD ? currentSpeed : 0);
-  analogWrite(Backward_PIN, direction == BACKWARD ? currentSpeed : 0);
+  digitalWrite(Forward_PIN, direction == FORWARD ? HIGH : LOW);
+  digitalWrite(Backward_PIN, direction == BACKWARD ? HIGH : LOW);
+  analogWrite(PWM_PIN, currentSpeed);
 }
 
-MotorsClass Right_Motor(12, 13);
-MotorsClass Left_Motor(14, 27);
+MotorsClass Right_Motor(12, 13, 26);
+MotorsClass Left_Motor(14, 27, 25);
