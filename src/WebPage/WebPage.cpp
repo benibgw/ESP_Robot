@@ -61,6 +61,7 @@ String WebPageClass::GetPage(){
 
 void WebPageClass::begin(){
   WiFi.softAP(SSID, PASSWORD);
+  MDSN.begin("Robo_CTISMART")
 
   server.on("/", [this](){
     server.send(200, "text/html", GetPage());
